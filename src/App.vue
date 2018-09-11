@@ -17,7 +17,9 @@
     <!-- <router-view></router-view> -->
 
     <footer> 
+      <a href="https://github.com/laurenshareshian/twitter-election-heroku-app"> 
       <img class="heart-image" :src="('/made-with-love.png')" />
+      </a>
       <p> Made @ alchemy code lab PDX</p>
     </footer>
     

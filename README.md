@@ -1,21 +1,7 @@
-# app
+This is repo is for the front end of the Twitter Election app. The backend is located here:
 
-## Project setup
-```
-npm install
-```
+https://github.com/laurenshareshian/twitter-election-heroku-server
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
 
-### Compiles and minifies for production
-```
-npm run build
-```
 
-### Lints and fixes files
-```
-npm run lint
-```
+Thanks to Kayla Fields for helping with CSS! https://github.com/kaylafields
