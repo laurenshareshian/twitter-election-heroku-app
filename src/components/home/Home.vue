@@ -3,8 +3,8 @@
     <div class="welcome">
 
       <h1>Midterm Elections 2018</h1>
-      <router-link to="/tweets">
-      <button> Explore the issues </button>
+      <router-link to="/auth">
+      <button> Sign in </button>
       </router-link>
     </div>
 
@@ -53,7 +53,7 @@ button {
     font-weight: 600;
     box-shadow: -4px 2px 20px -6px rgba(0,0,0,0.75);
     transition: all .2s ease-in-out;
-    margin-bottom:180px;
+    margin-bottom:300px;
 }
 button:hover {
     transform: scale(1.1); 
@@ -70,9 +70,42 @@ a {
   color: white;
 }
 
+
+@supports ((display: -ms-grid) or (display: grid)) {
+    @media (max-width: 500px) {
+main {
+  background-image: url("/america.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  padding: 0px;
+ 
+}
+button {
+
+    margin-bottom:10vh;
+}
+h1 {
+  font-size: 40px;
+  color: black;
+  margin-bottom:200px !important;
+}
+
+    }
+}
+
+
 @supports ((display: -ms-grid) or (display: grid)) {
     @media (max-width: 1080px) {
-        button {margin-bottom: 400px;}
+main {
+  background-image: url("/america.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  padding: 100px;
+ 
+}
+
     }
 }
 </style>

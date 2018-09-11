@@ -25,7 +25,6 @@ export default {
   methods: {
     handleUrl() {
       let reg = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#/%?=~_|!:,.;]*[-A-Z0-9+&@#/%=~_|])/ig;
-      this.url = this.tweet.text.match(reg)[0];
       return this.tweet.text.replace(reg, '');
     }
 
@@ -58,4 +57,12 @@ p {
   padding: 10px;
 }
 
+@supports ((display: -ms-grid) or (display: grid)) {
+    @media (max-width: 500px) {
+
+      Tweet {
+        overflow: auto;
+      }
+    }
+}
 </style>

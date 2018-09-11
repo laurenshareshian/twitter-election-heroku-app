@@ -28,8 +28,8 @@ export default {
   text-align: center;
   text-transform: uppercase;
 }
-/* p {
+p {
   text-align: center;
   text-transform: uppercase;
-} */
+}
 </style>

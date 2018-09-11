@@ -103,6 +103,7 @@ button:hover {
 }
 .flex-box{
   display:flex;
+  align-items: center;
 }
 .soflow-color {
   -webkit-appearance: button;
@@ -132,4 +133,24 @@ button.soflow-color {
   border-radius: 5px;
   width: 100px;
 }
+
+@supports ((display: -ms-grid) or (display: grid)) {
+    @media (max-width: 800px) {
+    .flex-box{
+      display:flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .button-container {
+      padding: 30px;
+    }
+
+    button {
+      width: 50px;
+    }
+    }
+}
+
+
 </style>

@@ -25,7 +25,7 @@ import ChoicesForm from './ChoicesForm.vue';
 import Politicians from './Politicians.vue';
 import Loading from './Loading.vue';
 import FilteredResults from './FilteredResults.vue';
-import api from '../../services/api';
+import { getUserIssueById, getStateById, getTweets, getUserIssues, getStates } from '../../services/api';
 
 export default {
   data() {
@@ -47,11 +47,11 @@ export default {
     };
   },
   created() {
-    api.getStates()
+    getStates()
       .then(states => {
         this.states = states;
       });
-    api.getIssues()
+    getUserIssues()
       .then(issues => {
         this.issues = issues;
       });
@@ -60,7 +60,7 @@ export default {
     ChoicesForm,
     Politicians,
     FilteredResults,
-    Loading
+    Loading,
   },
   methods: {
     handleAdd(choice) {
@@ -69,12 +69,13 @@ export default {
       this.issueChoiceId = choice.issue;
       this.tweets1 = [];
       this.tweets2 = [];
-      api.getIssueById(this.issueChoiceId)
+      getUserIssueById(this.issueChoiceId)
         .then(issue => {
+          console.log('issue', issue);
           this.issue = issue;
-          this.searchTerms = this.issue.searchterms;
+          this.searchTerms = this.issue.searchTerms;
         });
-      api.getStateById(this.stateChoiceId)
+      getStateById(this.stateChoiceId)
         .then(state => {
           this.state = state.name;
           this.name = state.name;
@@ -84,15 +85,21 @@ export default {
           this.screenName2 = state.twitter2;
         })
         .then(() => {
-          api.getTweets({ screenName: this.screenName1 })
+          getTweets({ screenName: this.screenName1 })
             .then(tweets => {
               this.tweets1 = tweets;
               console.log(this.tweets1[0]);
+            })
+            .catch((error) => {
+              console.log('error: ', error);
             });
-          api.getTweets({ screenName: this.screenName2 })
+          getTweets({ screenName: this.screenName2 })
             .then(tweets => {
               this.tweets2 = tweets;
               this.loading = false;
+            })
+            .catch((error) => {
+              console.log('error: ', error);
             });
         });
       return choice;
@@ -119,5 +126,33 @@ ul.list {
 
 section {
   padding-bottom: 500px;
+}
+
+
+@supports ((display: -ms-grid) or (display: grid)) {
+    @media (max-width: 500px) {
+
+      .filtered-results {
+        display: flex;
+        flex-direction: column;
+      }
+
+    section {
+      padding-bottom: 250px;
+      }
+    }
+}
+@supports ((display: -ms-grid) or (display: grid)) {
+    @media (max-width: 1080px) {
+      .filtered-results {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+    section {
+      padding-bottom: 600px;
+      }
+    }
 }
 </style>

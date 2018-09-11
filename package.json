@@ -43,5 +43,17 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "description": "## Project setup ``` npm install ```",
+  "main": "babel.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laurenshareshian/twitter-election-heroku-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/laurenshareshian/twitter-election-heroku-app/issues"
+  },
+  "homepage": "https://github.com/laurenshareshian/twitter-election-heroku-app#readme"
 }
